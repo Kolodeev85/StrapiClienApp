@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subevents",
+  "info": {
+    "singularName": "subevent",
+    "pluralName": "subevents",
+    "displayName": "Subevent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "subevents"
+    },
+    "areas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::area.area",
+      "mappedBy": "subevent"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subgroups",
+  "info": {
+    "singularName": "subgroup",
+    "pluralName": "subgroups",
+    "displayName": "Subgroup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group.group",
+      "inversedBy": "subgroups"
+    },
+    "name": {
+      "type": "string",
+      "unique": true
+    },
+    "areas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::area.area",
+      "mappedBy": "subgroup"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "areas",
+  "info": {
+    "singularName": "area",
+    "pluralName": "areas",
+    "displayName": "Area",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "adress": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group.group",
+      "inversedBy": "areas"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "areas"
+    },
+    "publisher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::publisher.publisher",
+      "inversedBy": "areas"
+    },
+    "statusName": {
+      "type": "enumeration",
+      "enum": [
+        "free",
+        "active",
+        "unactive",
+        "holded"
+      ],
+      "required": false,
+      "default": "free"
+    },
+    "info": {
+      "type": "text",
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "histories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::history.history",
+      "mappedBy": "area"
+    },
+    "subgroup": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subgroup.subgroup",
+      "inversedBy": "areas"
+    },
+    "subevent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subevent.subevent",
+      "inversedBy": "areas"
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    }
+  }
+}

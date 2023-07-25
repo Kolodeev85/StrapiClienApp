@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "groups",
+  "info": {
+    "singularName": "group",
+    "pluralName": "groups",
+    "displayName": "Group",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true
+    },
+    "areas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::area.area",
+      "mappedBy": "group"
+    },
+    "subgroups": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subgroup.subgroup",
+      "mappedBy": "group"
+    }
+  }
+}
